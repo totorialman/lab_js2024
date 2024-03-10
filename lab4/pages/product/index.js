@@ -28,10 +28,13 @@ export class ProductPage {
             item[0].city={"id":155,
             "title":"Город скрыт"}
         }
-        if(item[0].online==0) item[0].online='Не в сети'
-        if(item[0].online==1) item[0].online='В сети'
+        if(item[0].online==0) {
+            item[0].online={"id":'Не в сети',"title":"red"}
+            
+            
+        }
+        else if(item[0].online==1) {item[0].online={"id":'В сети',"title":"green"}}
         product.render(item[0])
-        
     }
     get pageRoot() {
         return document.getElementById('product-page')

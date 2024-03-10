@@ -19,7 +19,7 @@ export class ProductComponent {
                                 <h5 class="card-title">${data.first_name} ${data.last_name} ${data.bdate}</h5>
                                 <h5 class="card-title">${data.bdate}</h5>
                                 <h5 class="card-title">${data.city.title}</h5>
-                                <h5 class="card-title">${data.online}</h5>
+                                <h5 class="card-title" style="color:${data.online.title}">${data.online.id}</h5>
                             </div>
                         </div>
                     </div>
