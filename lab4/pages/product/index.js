@@ -24,6 +24,7 @@ export class ProductPage {
         try{
             if(item[0].city.title){}
         }
+        
         catch{
             item[0].city={"id":155,
             "title":"Город скрыт"}
