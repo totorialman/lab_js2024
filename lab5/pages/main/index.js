@@ -4,6 +4,7 @@ import {ButtonComponent} from "../../components/button/index.js";
 import {RightButtonComponent} from "../../components/right-button/index.js";
 import {ProductPage} from "../product/index.js";
 import {ajax} from "../../modules/ajax.js";
+import {getDataFromServer} from "../../modules/ajax.js";
 import {urls} from "../../modules/urls.js";
 import {groupId} from "../../modules/consts.js";
 let pos = 0
@@ -14,10 +15,14 @@ export class MainPage {
     }
     
     getData() {
-        ajax.post(urls.getGroupMembersFilter(groupId,fil[pos%4]), (data) => {
+        // ajax.post(urls.getGroupMembersFilter(groupId,fil[pos%4]), (data) => {
             
-            this.renderData(data.response.items)
-        })
+        //     this.renderData(data.response.items)
+        // })
+
+        getDataFromServer(urls.getGroupMembersFilter(groupId, fil[pos % 4]), (data) => {
+            this.renderData(data.response.items);
+        });
     }
     
     getData1() {
@@ -27,10 +32,13 @@ export class MainPage {
         //     title: "Акция",
         //     text: "У меня есть крутая акция"
         // }
-        ajax.post(urls.getGroupMembersFilter(groupId,'friends'), (data) => {
+
+         ajax.post(urls.getGroupMembersFilter(groupId,'friends'), (data) => {
             
-            this.renderData(data.response.items)
-        })
+             this.renderData(data.response.items)
+         })
+        
+        //getDataFromServer()
     }
 
     get pageRoot() {

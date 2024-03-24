@@ -14,3 +14,21 @@ class Ajax {
 }
 
 export const ajax = new Ajax();
+
+
+    export const getDataFromServer = async (url, callback) => {
+        try {
+            const response = await fetch(url);
+            
+            if (response.ok) {
+                const data = await response.json();
+                callback(data);
+            } else {
+                throw new Error(`Ошибка HTTP: ${response.status}`);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+ }
+
+
